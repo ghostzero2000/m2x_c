@@ -2,6 +2,7 @@
 
 #include "client.h"
 #include "timestamp.h"
+#include "inttypes.h"
 
 m2x_response m2x_timestamp_json(m2x_context *ctx)
 {

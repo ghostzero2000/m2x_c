@@ -3,7 +3,9 @@
 #include "m2x.h"
 #include "device.h"
 
-const char *M2X_KEY="";
+
+const char *M2X_KEY="d400a10c22a81604b039489b3925b931";
+
 
 int main()
 {

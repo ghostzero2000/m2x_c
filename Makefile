@@ -1,7 +1,8 @@
 AR=ar
 CC=gcc
 CFLAGS=-O2 -Wall -Wextra -std=c89
-LDFLAGS=-lcurl
+#LDFLAGS= -lcurl
+LDFLAGS= -L/usr/include 
 M2X_LIB=m2x.a
 
 OBJS=device.o distribution.o key.o timestamp.o chart.o response.o client.o serializer.o utility.o m2x.o collection.o job.o command.o
@@ -9,7 +10,7 @@ $(M2X_LIB): $(OBJS) parson.o
 	$(AR) -rcs $@ $^
 
 %.o: %.c
-	$(CC) -o $@ $(CFLAGS) -c $<
+	$(CC) -o $@ $(CFLAGS) $(LDFLAGS) -c $< -lcurl
 
 parson.o: third_party/parson/parson.c third_party/parson/parson.h
 	$(CC) -o $@ $(CFLAGS) -c $<

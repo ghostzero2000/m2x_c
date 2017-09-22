@@ -1,41 +1,42 @@
 CC=gcc
-CFLAGS=-O2 -Wall -Wextra -std=c89 -I..
-LDFLAGS=-lcurl
+CFLAGS=-O2 -Wall -Wextra -std=c89 -I.. 
+#LDFLAGS= -L/usr/include -lcurl 
+LDFLAGS=-lcurl 
 M2X_LIB=../m2x.a
 
 BINS=m2x_status list_devices create_device update_device delete_device_values serialize_json export_values  add_device_to_collection remove_device_from_collection delete_location_history
 
-all: $(BINS)
+all: $(BINS) 
 
 m2x_status: m2x_status.o $(M2X_LIB)
-	$(CC) -o $@ $(LDFLAGS) $^
+	$(CC) -o $@ $^ $(LDFLAGS)
 
 list_devices: list_devices.o $(M2X_LIB)
-	$(CC) -o $@ $(LDFLAGS) $^
+	$(CC) -o $@  $^ $(LDFLAGS)
 
 create_device: create_device.o $(M2X_LIB)
-	$(CC) -o $@ $(LDFLAGS) $^
+	$(CC) -o $@  $^ $(LDFLAGS)
 
 update_device: update_device.o $(M2X_LIB)
-	$(CC) -o $@ $(LDFLAGS) $^
+	$(CC) -o $@  $^ $(LDFLAGS)
 
 delete_device_values: delete_device_values.o $(M2X_LIB)
-	$(CC) -o $@ $(LDFLAGS) $^
+	$(CC) -o $@  $^ $(LDFLAGS)
 
 serialize_json: serialize_json.o $(M2X_LIB)
-	$(CC) -o $@ $(LDFLAGS) $^
+	$(CC) -o $@  $^ $(LDFLAGS)
 
 export_values: export_values.o $(M2X_LIB)
-	$(CC) -o $@ $(LDFLAGS) $^
+	$(CC) -o $@  $^ $(LDFLAGS)
 
 add_device_to_collection: add_device_to_collection.o $(M2X_LIB)
-	$(CC) -o $@ $(LDFLAGS) $^
+	$(CC) -o $@  $^ $(LDFLAGS)
 
 remove_device_from_collection: remove_device_from_collection.o $(M2X_LIB)
-	$(CC) -o $@ $(LDFLAGS) $^
+	$(CC) -o $@  $^ $(LDFLAGS)
 
 delete_location_history: delete_location_history.o $(M2X_LIB)
-	$(CC) -o $@ $(LDFLAGS) $^
+	$(CC) -o $@  $^ $(LDFLAGS)
 
 %.o: %.c
 	$(CC) -o $@ $(CFLAGS) -c $<

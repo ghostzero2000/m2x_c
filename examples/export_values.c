@@ -3,7 +3,7 @@
 #include "m2x.h"
 #include "device.h"
 
-const char *M2X_KEY = "";
+const char *M2X_KEY = "f509849553aa269de17ff0d837bde3a1";
 const char *device_id = "";
 
 int main()
